@@ -1,0 +1,17 @@
+<label>Username: </label>
+<input class="form-control" type="text" [(ngModel)]="username" name="username" (keyup)="setUsername()"/>
+
+<h1 class="text-center">SocketChat</h1>
+<div *ngIf="username">
+    <input class="form-control" type="text" placeholder="Enter Message..." [(ngModel)]="message" name="message" (keyup.enter)="sendMessage()"/>
+    <br/>
+    <div *ngFor="let message of messages">
+        <div class="well">
+            <strong>{{ message.username }}: </strong>{{ message.text }}
+        </div>
+    </div>
+</div>
+
+<div *ngIf="!username">
+    <h3>Please Log In to Chat</h3>
+</div>
